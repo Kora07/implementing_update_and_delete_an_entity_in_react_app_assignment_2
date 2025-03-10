@@ -1,13 +1,16 @@
 import Item from "./Item";
 
-const ItemList = ({ items }) => {
-    // your code here
+const ItemList = ({ items, setItems }) => {
     return (
-        <>
-            {items.map((item) => (
-                <Item key={item.id} item={item} />
-            ))}
-        </>
+        <div>
+            {items.length > 0 ? (
+                items.map((item) => (
+                    <Item key={item.id} item={item} setItems={setItems} />
+                ))
+            ) : (
+                <p>No items found.</p>
+            )}
+        </div>
     );
 };
 
